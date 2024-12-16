@@ -207,6 +207,12 @@ func getSchema(app *GenApp, param any) GenDefinition {
 		} else if len(t.Properties) > 0 {
 			goType = t.Properties[0].GoType
 		}
+	case *GenSchema:
+		if t.GoType != "" {
+			goType = t.GoType
+		} else if len(t.Properties) > 0 {
+			goType = t.Properties[0].GoType
+		}
 	}
 
 	for _, m := range app.Models {
